@@ -1,0 +1,14 @@
+buyer<- read.csv(file.choose())
+
+summary(buyer)
+attach(buyer)
+
+## Normality Test
+shapiro.test(Males)     ## p-value = 0.3419>0.05  ,so we accpt null hypo ,it follows normal disribution
+shapiro.test(Females)   ## p-value = 0.548>0.05   ,so we accept null hypo,it follws norml distribution  
+
+## T Test
+t.test(Males,Females,alternative = "two.sided",conf.level = 0.95,correct = TRUE)#two sample T.Test
+### p-value = 0.03627 < 0.05 , Reject the Null Hypothesis  # that is no equal means
+
+
