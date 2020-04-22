@@ -1,0 +1,21 @@
+labtat<- read.csv(file.choose())
+View(labtat)
+
+stack_data<-stack(labtat)       ##Coverted into Stack Data
+View(stack_data)
+attach(stack_data)
+
+library(nortest)
+
+######## NORMALITY TEST  ############
+ad.test(stack_data$values)        ## P value = 0.0507>0.05 
+
+######## Varience Test  ############
+library(car)
+leveneTest(stack_data$values~stack_data$ind, data = stack_data)
+
+######## Anova Result ###########
+anova_results <- aov(stack_data$values~stack_data$ind,data = stack_data)
+summary(anova_results)
+
+##P Value <0.05 ,so we reject Null Hypothesis
