@@ -1,0 +1,15 @@
+faltoons<- read.csv(file.choose())
+attach(faltoons)
+summary(faltoons)
+table(Weekdays,Weekend)
+
+### Propotional T test ###
+prop.test(x= c(66,47),n = c(233,167),conf.level = 0.95,alternative = "two.sided", correct = FALSE)
+## P Value = 0.96 > 0.05
+## For Equal Proportion Of males and females
+
+prop.test(x= c(66,47),n = c(233,167),conf.level = 0.95,alternative = "less", correct = FALSE)
+## P Value is 0.51 > 0.05
+
+## so Accept Null Hypothesis
+
